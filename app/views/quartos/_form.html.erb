@@ -1,0 +1,31 @@
+<%= form_with(model: quarto, local: true) do |form| %>
+  <% if quarto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(quarto.errors.count, "error") %> prohibited this quarto from being saved:</h2>
+
+      <ul>
+      <% quarto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nome %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <br />
+
+  <div class="dropdown">
+    <%= form.label :apelido %>
+    <%= form.collection_select :usuario_id, @usuarios, :id, :apelido,  include_blank: true %>
+  </div>
+
+  <br />
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
