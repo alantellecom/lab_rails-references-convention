@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  usuario: one
+  quarto: one
+  pontos: 1
+
+two:
+  usuario: two
+  quarto: two
+  pontos: 1

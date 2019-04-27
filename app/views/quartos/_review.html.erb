@@ -1,0 +1,10 @@
+<%= form_for [review.quarto, review] do |f| %>
+
+    <%= Review::POINTS.each do |point| %>
+        <%= f.radio_button :pontos, point %>
+        <%= f.label :pontos, point, value: point%>
+    <% end %>
+
+    <%= f.submit %>
+
+<%end%>

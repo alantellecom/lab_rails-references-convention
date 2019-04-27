@@ -10,17 +10,21 @@ class QuartosController < ApplicationController
   # GET /quartos/1
   # GET /quartos/1.json
   def show
+    @quarto = Quarto.find(params[:id])
+    @usuario_review = @quarto.reviews.find_or_initialize_by(params[:usuario_id])
   end
 
   # GET /quartos/new
   def new
     @quarto = Quarto.new
     @usuarios=Usuario.all
+    
   end
 
   # GET /quartos/1/edit
   def edit
     @usuarios=Usuario.all
+    
   end
 
   # POST /quartos
@@ -71,6 +75,6 @@ class QuartosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def quarto_params
-      params.require(:quarto).permit(:nome, :usuario_id)
+      params.require(:quarto).permit(:numero, :usuario_id)
     end
 end

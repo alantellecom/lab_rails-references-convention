@@ -10,18 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_22_220355) do
+ActiveRecord::Schema.define(version: 2019_04_27_162707) do
 
   create_table "quartos", force: :cascade do |t|
-    t.string "nome"
+    t.integer "numero"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "usuario_id"
+    t.integer "reviews_count"
     t.index ["usuario_id"], name: "index_quartos_on_usuario_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer "usuario_id"
+    t.integer "quarto_id"
+    t.integer "pontos"
+    t.integer "[:usuario_id, :quarto_id]_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["[:usuario_id, :quarto_id]_id"], name: "index_reviews_on_[:usuario_id, :quarto_id]_id"
+    t.index ["quarto_id"], name: "index_reviews_on_quarto_id"
+    t.index ["usuario_id"], name: "index_reviews_on_usuario_id"
+  end
+
   create_table "usuarios", force: :cascade do |t|
-    t.string "apelido"
+    t.string "nome"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

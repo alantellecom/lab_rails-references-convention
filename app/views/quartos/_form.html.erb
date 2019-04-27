@@ -12,15 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :nome %>
-    <%= form.text_field :nome %>
+    <%= form.label :numero %>
+    <%= form.number_field :numero %>
   </div>
 
   <br />
 
   <div class="dropdown">
-    <%= form.label :apelido %>
-    <%= form.collection_select :usuario_id, @usuarios, :id, :apelido,  include_blank: true %>
+    <%= form.label :nome %>
+    <%= form.collection_select :usuario_id, @usuarios, :id, :nome,  include_blank: true %>
   </div>
 
   <br />

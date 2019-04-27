@@ -5,8 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>Nome</th>
-      <th>Apelido </th>
+      <th>Numero</th>
+      <th>Nome </th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,8 +14,8 @@
   <tbody>
     <% @quartos.each do |quarto| %>
       <tr>
-        <td><%= quarto.nome %></td>
-        <td><%= quarto.usuario.apelido %></td>
+        <td><%= quarto.numero %></td>
+        <td><%= quarto.usuario.nome %></td>
         <td><%= link_to 'Show', quarto %></td>
         <td><%= link_to 'Edit', edit_quarto_path(quarto) %></td>
         <td><%= link_to 'Destroy', quarto, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,9 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Nome:</strong>
-  <%= @quarto.nome %>
+  <strong>Numero Quarto:</strong>
+  <%= @quarto.numero %>
 </p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @quarto.usuario.nome %>
+</p>
+
+<%= render partial: 'review', object: @usuario_review %>
 
 <%= link_to 'Edit', edit_quarto_path(@quarto) %> |
 <%= link_to 'Back', quartos_path %>
