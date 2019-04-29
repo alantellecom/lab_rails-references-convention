@@ -11,7 +11,8 @@ class QuartosController < ApplicationController
   # GET /quartos/1.json
   def show
     @quarto = Quarto.find(params[:id])
-    @usuario_review = @quarto.reviews.find_or_initialize_by(params[:usuario_id])
+    usuario_aux = (@quarto.usuario_id).to_s
+    @usuario_review = @quarto.reviews.find_or_initialize_by(usuario_id: usuario_aux)
   end
 
   # GET /quartos/new

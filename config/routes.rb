@@ -4,5 +4,8 @@ Rails.application.routes.draw do
   resources :quartos do
     resources :reviews, only: [:create, :update], module: :quartos
   end 
+  scope module: 'quartos' do
+    get 'avaliacoes', to: 'reviews#index', as: 'avaliacoes'
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
