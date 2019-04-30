@@ -16,9 +16,10 @@
       <tr>
         <td><%= quarto.numero %></td>
         <td><%= quarto.usuario.nome %></td>
-        <td><%= link_to 'Show', quarto %></td>
+        <td><%= link_to 'Show', quarto %></td> <!--utilizando params quarto pela rota aninhada -->
         <td><%= link_to 'Edit', edit_quarto_path(quarto) %></td>
         <td><%= link_to 'Destroy', quarto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Avaliar', new_avaliar_path(quarto) %></td> <!--utilizando params quarto pela rota aninhada -->
       </tr>
     <% end %>
   </tbody>
@@ -28,5 +29,5 @@
 
 <%= link_to 'New Quarto', new_quarto_path %>
 <br>
-<%= link_to 'visualizar/criar Avaliações', avaliacoes_path %>
+<%= link_to 'visualizar/criar Avaliações', avaliacoes_path %> <!--sem utilizar params quarto pela rota aninhada -->
 

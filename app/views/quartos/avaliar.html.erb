@@ -1,15 +1,17 @@
-<section class= 'review'>
-    
+<%= @usuario_review.quarto.numero %> <!--utilizando params quarto pela rota aninhada -->
+<br>
+<%= @usuario_review.usuario.nome %>
+<br>
 
-<%= form_for [@usuario_review.quarto, @usuario_review ] do |f| %> <!--utilizando params do quarto pela rota -->
+<section class= 'review'>
+
+<%= form_for [@usuario_review.quarto, @usuario_review ] do |f| %>
 
     <% Review::POINTS.each do |point| %>
         <%= f.radio_button :pontos, point %>
         <%= f.label :pontos, point, value: point %>
     <% end %>
     
-    &nbsp
-
     <%= f.submit %>
 
 <%end%>

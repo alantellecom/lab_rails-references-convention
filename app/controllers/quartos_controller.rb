@@ -9,7 +9,7 @@ class QuartosController < ApplicationController
 
   # GET /quartos/1
   # GET /quartos/1.json
-  def show
+  def show # utilizando params quarto pela rota aninhada
     @quarto = Quarto.find(params[:id])
     usuario_aux = (@quarto.usuario_id).to_s
     @usuario_review = @quarto.reviews.find_or_initialize_by(usuario_id: usuario_aux)
@@ -21,6 +21,12 @@ class QuartosController < ApplicationController
     @usuarios=Usuario.all
     
   end
+  
+  def avaliar # utilizando params quarto pela rota aninhada
+    @quarto = Quarto.find(params[:id])
+    usuario_aux = (@quarto.usuario_id).to_s
+    @usuario_review = @quarto.reviews.find_or_initialize_by(usuario_id: usuario_aux)
+  end  
 
   # GET /quartos/1/edit
   def edit
