@@ -16,6 +16,7 @@
         <td><%= review.quarto.numero %></td>
         <td><%= review.usuario.nome %></td>
         <td><%= review.pontos %></td>
+        <td><%= link_to 'Edit', edit_avaliacao_path(review) %></td>
       </tr>
     <% end %>
   </tbody>

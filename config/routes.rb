@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   
   scope module: 'quartos' do
     get 'avaliacoes', to: 'reviews#index', as: 'avaliacoes'
-    get 'new_avaliacao', to: 'reviews#new', as: 'new_avaliacao'
-    post 'create_avaliacao', to: 'reviews#create', as: 'create_avaliacao'
+    post 'avaliacoes', to: 'reviews#create', as: 'reviews'
+    get 'avaliacao/new', to: 'reviews#new', as: 'new_avaliacao'
+    get 'avaliacao/:id/edit', to: 'reviews#edit', as:  'edit_avaliacao'
+    patch  'avaliacao/:id', to: 'reviews#update', as: 'review'
     
   end
 
