@@ -1,0 +1,33 @@
+<section class= 'review'>
+    
+
+<%= form_for @review, url: create_avaliacao_path do |f| %>
+
+
+      <div class="dropdown">
+        <%= f.label :quarto %>
+        <%= f.collection_select :quarto_id, @quartos, :id, :numero,  include_blank: true %>
+      </div>
+    
+        <br>
+    
+      <div class="dropdown">
+        <%= f.label :nome %>
+        <%= f.collection_select :usuario_id, @usuarios, :id, :nome,  include_blank: true %>
+      </div>
+
+      <br>
+
+
+    <% Review::POINTS.each do |point| %>
+        <%= f.radio_button :pontos, point %>
+        <%= f.label :pontos, point, value: point %>
+    <% end %>
+    
+    &nbsp
+
+    <%= f.submit %>
+
+<%end%>
+
+</section>

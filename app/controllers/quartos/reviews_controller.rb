@@ -1,11 +1,18 @@
 class Quartos::ReviewsController < ApplicationController
+    
+    def new
+        @usuarios=Usuario.all
+        @quartos =Quarto.all
+        @review =Review.new
+    end
 
     def create
         
-       usuario_aux = (quarto.usuario_id).to_s
-       review = quarto.reviews.find_or_initialize_by(usuario_id: usuario_aux)# parametro model
-     
-        review.update!(review_params)
+       #usuario_aux = (quarto.usuario_id).to_s
+       #review = @quarto.reviews.find_or_initialize_by(usuario_id: usuario_aux)# parametro model
+        
+        @update=Review.new(review_params)
+        @update.save
         redirect_to avaliacoes_path
     end
     
@@ -22,6 +29,6 @@ class Quartos::ReviewsController < ApplicationController
     end
 
     def review_params
-        params.require(:review).permit(:pontos)
+        params.require(:review).permit(:pontos, :usuario_id, :quarto_id)
     end    
 end    
