@@ -2,8 +2,25 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-
 .review label{
     display: inline;
+}
+
+.review .star{
+    font-family: "FontAwesome";
+    font-size: 18px;
+}
+
+
+.review .filled_star:before{
+    font-family: "FontAwesome";
+    font-size: 18px;
+    color: gold;
+    content: "\f005"
+}
+
+.review .empty_star:before{
+    font-size: 18px;
+    color: #aaa;
+    
 }

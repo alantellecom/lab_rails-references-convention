@@ -12,6 +12,7 @@ class QuartosController < ApplicationController
   def show # utilizando params quarto pela rota aninhada
     @quarto = Quarto.find(params[:id])
     @reviews = @quarto.reviews
+    @media_estrelas = @reviews.estrelas
     #usuario_aux = (@quarto.usuario_id).to_s
     #@usuario_review = @quarto.reviews.find_or_initialize_by(usuario_id: usuario_aux)
   end
