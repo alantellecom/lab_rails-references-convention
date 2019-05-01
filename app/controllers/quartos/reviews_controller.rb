@@ -7,18 +7,18 @@ class Quartos::ReviewsController < ApplicationController
     end
 
     def create
-       usuario_aux = (quarto.usuario_id).to_s #utilizando params do quarto pela rota
-       review = @quarto.reviews.find_or_initialize_by(usuario_id: usuario_aux)# parametro model
-       review.update!(review_params)
-       
-        #@review=Review.new(review_params) # sem utilizar params do quarto pela rota
-        #@review.save
-        redirect_to avaliacoes_path
+        @quarto ||= Quarto.find(params[:quarto_id]) #parametros da URL. Não existe usuario_id na url, apenas no form
+        #params do formulario.
+        @review=Review.new(review_params) #apenas parametros do form.
+        @review.quarto= @quarto #necessario incluir quarto pela URL
+        @review.save
+        #redirect_to avaliacoes_path
+        redirect_to quarto_review_path(@quarto, @review)
     end
     
     def show # sem utilizar params do quarto pela rota
-        usuario_aux = (quarto.usuario_id).to_s
-       @review = @quarto.reviews.find_or_initialize_by(usuario_id: usuario_aux)
+            @quarto_review = Review.where(quarto_id: params[:quarto_id]) #retorna ultimo elemento pois a hash do path invocado em create possui quarto_id
+            @usuario_review = Review.find_by(usuario_id: params[:usuario_id]) #retorna nulo pois na hash não consta usuario_id
     end
     
     def index
@@ -26,7 +26,7 @@ class Quartos::ReviewsController < ApplicationController
     end    
 
     def update
-        create #utilizando params do quarto pela rota
+        #create #utilizando params do quarto pela rota
         #@avaliacao = Review.find(params[:id]) # sem utilizar params do quarto pela rota
         #@avaliacao.update(review_params)
     end
@@ -37,11 +37,7 @@ class Quartos::ReviewsController < ApplicationController
         @avaliacao = Review.find(params[:id])
     end
 
-    def quarto
-        @quarto ||= Quarto.find(params[:quarto_id]) #parametros de URL
-    end
-
-    def review_params
-        params.require(:review).permit(:pontos, :usuario_id, :quarto_id)
+    def review_params #parametros do formulario
+        params.require(:review).permit(:pontos, :usuario_id)
     end    
 end    

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     get 'avaliacoes', to: 'reviews#index', as: 'avaliacoes'
     post 'avaliacoes', to: 'reviews#create', as: 'reviews' # para utiliza convenção do botão submit create/update, nome do path = nome do controle com "s" no final 
     get 'avaliacao/new', to: 'reviews#new', as: 'new_avaliacao'
+    get 'avaliacao/:id', to: 'reviews#show', as: 'avaliacao'
     get 'avaliacao/:id/edit', to: 'reviews#edit', as:  'edit_avaliacao'
     patch  'avaliacao/:id', to: 'reviews#update', as: 'review' # para utiliza convenção do botão submit create/update, nome do path = nome do controle sem "s" no final
   end
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
   get 'quarto/:id', to: 'quartos#avaliar', as: 'new_avaliar'   # utilizando params do quarto pela rota
 
   resources :quartos do # utilizando params do quarto pela rota. Modifica nomenclatura da path das actions-controller review para padrão "quarto_review" 
-    resources :reviews, only: [:create, :update], module: :quartos #modifica caminho para busca do controller review
+    resources :reviews, only: [:create, :update, :show], module: :quartos #modifica caminho para busca do controller review
     
   end 
 

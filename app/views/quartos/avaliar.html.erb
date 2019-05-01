@@ -1,11 +1,16 @@
-<%= @usuario_review.quarto.numero %> <!--utilizando params quarto pela rota aninhada -->
-<br>
-<%= @usuario_review.usuario.nome %>
-<br>
+
 
 <section class= 'review'>
 
-<%= form_for [@usuario_review.quarto, @usuario_review ] do |f| %>
+<%= form_for [@quarto, @review] do |f| %>
+
+
+    <div class="dropdown">
+    <%= f.label :nome %>
+    <%= f.collection_select :usuario_id, @usuarios, :id, :nome,  include_blank: true %>
+    </div>
+
+    <br>
 
     <% Review::POINTS.each do |point| %>
         <%= f.radio_button :pontos, point %>

@@ -1,17 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Numero Quarto:</strong> <!--utilizando params do quarto pela rota -->
-  <%= @quarto.numero %>
-</p>
+<h1>Reviews</h1>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @quarto.usuario.nome %>
-</p>
+<h2> Numero do quarto: <%=@quarto.numero %> </h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome </th>
+      <th>Pontos </th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reviews.each do |review| %>
+      <tr>
+        <td><%= review.usuario.nome %></td>
+        <td><%= review.pontos %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "voltar", root_path %>
 
 
-<%= render partial: 'review', object: @usuario_review %>
-
-<%= link_to 'Edit', edit_quarto_path(@quarto) %> |
-<%= link_to 'Back', quartos_path %>
