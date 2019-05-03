@@ -15,9 +15,9 @@
       <i class= "empty_star fa fa-star"></i>
     <%end%>
 
-    <!--<%=render partial: 'reviews_quarto', object: @reviews %> -->
-    <%=render @reviews %>
-
+    <%=render partial: 'reviews_quarto', object: @reviews %>
+    <!-- a partir das configurações passadas acima a função render, na view da partial é criada um variavel local com o nome da partial recebendo os valores do objeto model passado a função render --> 
+    <!-- tambem é possível definir nomes customizados para as variáveis local: render partial: 'reviews_quarto', locals: {the_reviews: @reviews} -->
     <br>
 
     <%= link_to "voltar", root_path %>

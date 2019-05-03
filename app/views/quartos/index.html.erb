@@ -12,16 +12,14 @@
   </thead>
 
   <tbody>
-    <% @quartos.each do |quarto| %>
-      <tr>
-        <td><%= quarto.numero %></td>
-        <td><%= quarto.usuario_nome %></td>
-        <td><%= link_to 'Show', quarto %></td> <!--utilizando params quarto pela rota aninhada -->
-        <td><%= link_to 'Edit', edit_quarto_path(quarto) %></td>
-        <td><%= link_to 'Destroy', quarto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Avaliar', new_avaliar_path(quarto) %></td> <!--utilizando params quarto pela rota aninhada -->
-      </tr>
-    <% end %>
+      <%= render @quartos %> 
+      <!-- COC rails. A partir desta implementação rails: -->
+      <!-- 1- verifica a qual recurso a view que invoca o render pertence (quarto)-->
+      <!-- 2- verifica se object model passada a render pertence ao mesmo recurso da view que invoca a função render -->
+      <!-- 3- procura uma partial com o mesmo nome do recurso (_quarto) -->
+      <!-- 4- cria uma variável local com o nome da partial -->
+      <!-- 5- No casso especifico de uma collection de object model ser passada para o render, o rails já trata identificando cada ojeto passa para a render e invoca N x a partil conforme o numero de objetos -->
+      
   </tbody>
 </table>
 

@@ -1,0 +1,10 @@
+<tr>
+    <td><%= quarto.numero %></td> <!-- variavel de instancia é implicitamente assinada para uma variavel local da view com o nome da partial -->
+    <td><%= quarto.usuario_nome %></td>
+    <td><%= link_to 'Show', quarto %></td> <!--utilizando params quarto pela rota aninhada -->
+    <td><%= link_to 'Edit', edit_quarto_path(quarto) %></td>
+    <td><%= link_to 'Destroy', quarto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Avaliar', new_avaliar_path(quarto) %></td> <!--utilizando params quarto pela rota aninhada -->
+</tr>
+
+ 
