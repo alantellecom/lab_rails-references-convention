@@ -15,24 +15,8 @@
       <i class= "empty_star fa fa-star"></i>
     <%end%>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Nome </th>
-          <th>Pontos </th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @reviews.each do |review| %>
-          <tr>
-            <td><%= review.usuario.nome %></td>
-            <td><%= review.pontos %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <!--<%=render partial: 'reviews_quarto', object: @reviews %> -->
+    <%=render @reviews %>
 
     <br>
 
