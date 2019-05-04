@@ -13,7 +13,7 @@
 
   <tbody>
       <%= render @quartos %> 
-      <%= paginate @quartos %>
+      
       <!-- COC rails. A partir desta implementação rails: -->
       <!-- 1- verifica a qual recurso a view que invoca o render pertence (quarto)-->
       <!-- 2- verifica se object model passada a render pertence ao mesmo recurso da view que invoca a função render -->
@@ -23,6 +23,10 @@
       
   </tbody>
 </table>
+
+<br>
+
+<%= paginate @quartos %>
 
 <br>
 
