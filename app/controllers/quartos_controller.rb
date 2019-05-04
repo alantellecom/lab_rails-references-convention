@@ -1,10 +1,13 @@
 class QuartosController < ApplicationController
   before_action :set_quarto, only: [:show, :edit, :update, :destroy]
+  delegate :current_page, :num_pages, :limit_value, :total_pages, to: :@quartos
+  PER_PAGE = 3
 
   # GET /quartos
   # GET /quartos.json
   def index
     @quartos = Quarto.all
+    @quartos_pages = @quartos.page(params[:page]).per(PER_PAGE)
   end
 
   # GET /quartos/1
