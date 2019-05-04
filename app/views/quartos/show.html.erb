@@ -6,6 +6,10 @@
 
     <h2> Numero do quarto: <%=@quarto.numero %> </h2>
 
+    <div	class="room-description">
+        <%= link_to(image_tag(@quarto.foto.thumb.url), @quarto.foto_url) %>
+    </div>    
+
     Pontuação Média: 
     <% @media_estrelas.times do%>
       <span class= "filled_star"></span>

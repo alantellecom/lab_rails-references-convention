@@ -1,5 +1,6 @@
 class Quarto < ApplicationRecord
     delegate :nome, to: :usuario, prefix:true
+    mount_uploader	:foto,	FotosUploader
     
     
     

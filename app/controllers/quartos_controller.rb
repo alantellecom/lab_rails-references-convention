@@ -87,6 +87,6 @@ class QuartosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def quarto_params
-      params.require(:quarto).permit(:numero, :usuario_id)
+      params.require(:quarto).permit(:numero, :usuario_id, :foto)
     end
 end
