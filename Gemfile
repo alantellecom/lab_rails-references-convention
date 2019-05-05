@@ -30,6 +30,7 @@ gem "font-awesome-rails"
 gem 'kaminari'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'devise'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

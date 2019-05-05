@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  
   root 'quartos#index'
   
   scope module: 'quartos' do #sem utilizar params do quarto pela rota (sem :quato_id do no caminho das rotas, apena :id do review)

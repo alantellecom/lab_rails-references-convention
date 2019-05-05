@@ -1,4 +1,5 @@
 class QuartosController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :avaliar, :create, :edit, :update, :destroy]
   before_action :set_quarto, only: [:show, :edit, :update, :destroy]
   delegate :current_page, :num_pages, :limit_value, :total_pages, to: :@quartos
   PER_PAGE = 2
