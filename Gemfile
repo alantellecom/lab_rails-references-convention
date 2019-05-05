@@ -32,6 +32,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'devise'
 gem 'administrate'
+gem 'cancancan'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

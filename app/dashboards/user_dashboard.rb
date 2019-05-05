@@ -27,8 +27,7 @@ class UserDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :email,
-    :encrypted_password,
-    :reset_password_token,
+    :admin
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -36,10 +35,6 @@ class UserDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :id,
     :email,
-    :encrypted_password,
-    :reset_password_token,
-    :reset_password_sent_at,
-    :remember_created_at,
     :created_at,
     :updated_at,
     :admin,
@@ -50,10 +45,6 @@ class UserDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :email,
-    :encrypted_password,
-    :reset_password_token,
-    :reset_password_sent_at,
-    :remember_created_at,
     :admin,
   ].freeze
 
