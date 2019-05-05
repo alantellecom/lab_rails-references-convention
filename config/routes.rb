@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :users
+      resources :quartos
+      resources :reviews
+      resources :usuarios
+
+      root to: "quartos#index"
+    end
   devise_for :users
   
   root 'quartos#index'
