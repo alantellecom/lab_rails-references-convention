@@ -6,8 +6,11 @@ class QuartosController < ApplicationController
   # GET /quartos
   # GET /quartos.json
   def index
-    @quartos = Quarto.page(params[:page]).per(PER_PAGE)
     
+    
+    
+    @quartos = Quarto.page(params[:page]).per(PER_PAGE)
+    binding.pry
   end
 
   # GET /quartos/1
