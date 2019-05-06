@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :users
+      resources :quartos
+      resources :reviews
+      resources :usuarios
+
+      root to: "quartos#index"
+    end
+  devise_for :users
+  
   root 'quartos#index'
   
   scope module: 'quartos' do #sem utilizar params do quarto pela rota (sem :quato_id do no caminho das rotas, apena :id do review)
