@@ -10,7 +10,8 @@
       <tbody>
         <% reviews_quarto.each do |review| %>
           <tr>
-            <td><%= review.usuario.nome %></td>
+            
+            <td><%= review.user.nome %></td>
             <td><%= review.pontos %></td>
           </tr>
         <% end %>

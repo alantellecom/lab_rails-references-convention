@@ -18,7 +18,7 @@
   <tbody>
     <% @quarto_review.each do |review| %>
       <tr>
-        <td><%= review.usuario.nome %></td>
+        <td><%= review.user.nome %></td>
         <td><%= review.pontos %></td>
       </tr>
     <% end %>
@@ -26,7 +26,7 @@
 </table>
 
 <br>
-<%= link_to root_path%>
+<%= link_to "Home",  root_path%>
  
 
 

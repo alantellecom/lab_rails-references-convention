@@ -44,6 +44,7 @@ class QuartosController < ApplicationController
   # POST /quartos
   # POST /quartos.json
   def create
+    #binding.pry
     @quarto = Quarto.new(quarto_params)
 
     respond_to do |format|

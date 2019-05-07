@@ -18,7 +18,7 @@ class Quartos::ReviewsController < ApplicationController
     
     def show # sem utilizar params do quarto pela rota
             @quarto_review = Review.where(quarto_id: params[:quarto_id]) #retorna ultimo elemento pois a hash do path invocado em create possui quarto_id
-            @usuario_review = Review.find_by(usuario_id: params[:usuario_id]) #retorna nulo pois na hash não consta usuario_id
+            @usuario_review = Review.find_by(user_id: params[:user_id]) #retorna nulo pois na hash não consta usuario_id
     end
     
     def index
@@ -38,6 +38,6 @@ class Quartos::ReviewsController < ApplicationController
     end
 
     def review_params #parametros do formulario
-        params.require(:review).permit(:pontos, :usuario_id)
+        params.require(:review).permit(:pontos, :user_id)
     end    
 end    
