@@ -33,6 +33,7 @@ gem 'rmagick'
 gem 'devise'
 gem 'administrate'
 gem 'cancancan'
+gem 'pry-rails'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

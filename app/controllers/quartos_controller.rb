@@ -7,11 +7,9 @@ class QuartosController < ApplicationController
   # GET /quartos
   # GET /quartos.json
   def index
-    
-    
-    
+
     @quartos = Quarto.page(params[:page]).per(PER_PAGE)
-    binding.pry
+    #binding.pry
   end
 
   # GET /quartos/1
@@ -20,26 +18,26 @@ class QuartosController < ApplicationController
     @quarto = Quarto.find(params[:id])
     @reviews = @quarto.reviews
     @media_estrelas = @reviews.estrelas
-    #usuario_aux = (@quarto.usuario_id).to_s
-    #@usuario_review = @quarto.reviews.find_or_initialize_by(usuario_id: usuario_aux)
+    #usuario_aux = (@quarto.user_id).to_s
+    #@usuario_review = @quarto.reviews.find_or_initialize_by(user_id: usuario_aux)
   end
 
   # GET /quartos/new
   def new
     @quarto = Quarto.new
-    @usuarios=Usuario.all
+    @usuarios=User.all
   end
   
   def avaliar # utilizando params quarto pela rota aninhada
     @quarto = Quarto.find(params[:id])
     @review = Review.new
-    @usuarios=Usuario.all  
-    #@usuario_review = @quarto.reviews.find_or_initialize_by(usuario_id: usuario_aux)
+    @usuarios=User.all  
+    #@usuario_review = @quarto.reviews.find_or_initialize_by(user_id: usuario_aux)
   end  
 
   # GET /quartos/1/edit
   def edit
-    @usuarios=Usuario.all
+    @usuarios=User.all
     
   end
 
@@ -91,6 +89,6 @@ class QuartosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def quarto_params
-      params.require(:quarto).permit(:numero, :usuario_id, :foto)
+      params.require(:quarto).permit(:numero, :user_id, :foto)
     end
 end
