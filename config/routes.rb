@@ -3,7 +3,7 @@ Rails.application.routes.draw do
       resources :users
       resources :quartos
       resources :reviews
-      resources :usuarios
+
 
       root to: "quartos#index"
     end

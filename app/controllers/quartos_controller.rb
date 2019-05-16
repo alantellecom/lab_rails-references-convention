@@ -18,8 +18,7 @@ class QuartosController < ApplicationController
     @quarto = Quarto.find(params[:id])
     @reviews = @quarto.reviews
     @media_estrelas = @reviews.estrelas
-    #usuario_aux = (@quarto.user_id).to_s
-    #@usuario_review = @quarto.reviews.find_or_initialize_by(user_id: usuario_aux)
+
   end
 
   # GET /quartos/new
@@ -32,7 +31,7 @@ class QuartosController < ApplicationController
     @quarto = Quarto.find(params[:id])
     @review = Review.new
     @usuarios=User.all  
-    #@usuario_review = @quarto.reviews.find_or_initialize_by(user_id: usuario_aux)
+
   end  
 
   # GET /quartos/1/edit

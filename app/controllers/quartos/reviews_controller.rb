@@ -1,7 +1,6 @@
 class Quartos::ReviewsController < ApplicationController
     
     def new # sem utilizar params do quarto pela rota
-        @usuarios=Usuario.all
         @quartos =Quarto.all
         @avaliacao =Review.new
     end
@@ -32,7 +31,6 @@ class Quartos::ReviewsController < ApplicationController
     end
     
     def edit # sem utilizar params do quarto pela rota
-        @usuarios=Usuario.all
         @quartos =Quarto.all
         @avaliacao = Review.find(params[:id])
     end

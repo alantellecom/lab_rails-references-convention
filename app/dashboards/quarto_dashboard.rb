@@ -8,7 +8,7 @@ class QuartoDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    usuario: Field::BelongsTo,
+    user: Field::BelongsTo,
     reviews: Field::HasMany,
     id: Field::Number,
     numero: Field::Number,
@@ -24,7 +24,7 @@ class QuartoDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :usuario,
+    :user,
     :reviews,
     :id,
     :numero,
@@ -33,7 +33,7 @@ class QuartoDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :usuario,
+    :user,
     :reviews,
     :id,
     :numero,
@@ -47,7 +47,7 @@ class QuartoDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :usuario,
+    :user,
     :reviews,
     :numero,
     :reviews_count,
